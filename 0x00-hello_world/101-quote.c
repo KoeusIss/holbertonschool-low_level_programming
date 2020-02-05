@@ -1,7 +1,15 @@
 #include <stdio.h>
-/* Main function */
+/**
+ * main - return a ginius simplicity
+ * Return: 1
+ */
 int main(void)
 {
-	printf("and that piece of art is useful\" - Dora Korpar, 2015-10-19");
+	char *c = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	while(*c != '\0')
+	{
+		putchar(*c);
+		c++;
+	}
 	return (1);
 }
