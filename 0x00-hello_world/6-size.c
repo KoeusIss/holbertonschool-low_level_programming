@@ -1,5 +1,8 @@
 #include <stdio.h>
-/* Main function */
+/**
+ * main - function return different size
+ * Return: 0
+ */
 int main(void)
 {
 	printf("Size of char: %lu byte(s)\n", sizeof(char));
