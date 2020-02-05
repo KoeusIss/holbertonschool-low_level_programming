@@ -6,7 +6,8 @@
 int main(void)
 {
 	char *c = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-	while(*c != '\0')
+
+	while (*c != '\0')
 	{
 		putchar(*c);
 		c++;
