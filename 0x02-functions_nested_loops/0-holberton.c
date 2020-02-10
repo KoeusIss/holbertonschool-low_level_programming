@@ -1,16 +1,16 @@
 #include "holberton.h"
 /**
- * print_holberton - print out the "Holberton"
+ * main - main function print out the "Holberton"
  *
- * Return 0
+ * Return: 0
  */
-int print_holberton(void)
+int main(void)
 {
 	char c[] = "Holberton";
 	int length = sizeof(c);
 	int i = 0;
 
-	while(i < length - 1)
+	while (i < length - 1)
 	{
 		_putchar(c[i]);
 		i++;
