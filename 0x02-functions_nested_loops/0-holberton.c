@@ -7,6 +7,7 @@
 int main(void)
 {
 	char c[] = "Holberton";
+	int i;
 
 	while (i < 10)
 	{
