@@ -13,10 +13,11 @@ int main(void)
 	long fib;
 	long sum = fib0 + fib1;
 
-	for (i = 3; i < 4000000; i++)
+	for (i = 3; i <= 4000000; i++)
 	{
 		fib = fib0 + fib1;
-		sum += fib;
+		if (fib % 2 == 0)
+			sum += fib;
 
 		fib0 = fib1;
 		fib1 = fib;
