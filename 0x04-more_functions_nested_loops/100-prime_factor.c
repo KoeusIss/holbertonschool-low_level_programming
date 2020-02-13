@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 /**
  * isprime - check if the number is prime
@@ -12,7 +11,7 @@ int isprime(long int num)
 	long int i;
 	int prime = 1;
 
-	for (i = 2; i < sqrt(num); i++)
+	for (i = 2; i < num / 2; i++)
 	{
 		printf(".");
 		if (num % i == 0)
