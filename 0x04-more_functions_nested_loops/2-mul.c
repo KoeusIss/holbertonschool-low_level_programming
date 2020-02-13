@@ -4,12 +4,10 @@
  * @a: the first integer
  * @b: the second integer
  *
- * Retrun: the result of multiplication
+ * Return: the multiplication of two parameters
  */
+
 int mul(int a, int b)
 {
-	int mul;
-
-	mul = a * b;
-	return (mul);
+	return (a * b);
 }
