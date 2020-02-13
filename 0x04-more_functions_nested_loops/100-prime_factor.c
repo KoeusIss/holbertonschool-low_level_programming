@@ -1,47 +1,32 @@
 #include <stdio.h>
 
 /**
- * isprime - check if the number is prime
- * @num: the number to be checked
- *
- * Return: 1 if is prime numbre, 0 otherwise
- */
-int isprime(long int num)
-{
-	long int i;
-	int prime = 1;
-
-	for (i = 2; i < num / 2; i++)
-	{
-		printf(".");
-		if (num % i == 0)
-		{
-			prime = 0;
-		}
-	}
-	return (prime);
-}
-
-/**
  * main - print the primer factors
  *
  * Return: 0
  */
 int main(void)
 {
-	long long int num = 612852475143;
-	long long int i;
+	long int num = 612852475143;
+	long int i = 2;
+	long int largest;
 
-	for (i = num; i > 2; i--)
+	while (num != 0)
 	{
-		if (num % i == 0)
+		if (num % i != 0)
 		{
-			if (isprime(i) == 1)
+			i += 1;
+		} else
+		{
+			largest = num;
+			num /= i;
+			if (num == 1)
 			{
-				printf("%lld\n", i);
+				printf("%ld\n", largest);
 				break;
 			}
 		}
+
 	}
 	return (0);
 }
