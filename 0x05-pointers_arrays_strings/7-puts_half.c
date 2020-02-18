@@ -5,13 +5,14 @@
  *
  * Return: void
  */
-void puts_half(char* str)
+void puts_half(char *str)
 {
 	int length;
 	int i;
 	int half;
 
-	for (length = 0; str[length] != '\0'; length++);
+	for (length = 0; str[length] != '\0'; length++)
+		;
 
 	half = (length + 1) / 2;
 	for (i = half; str[i] != '\0'; i++)
