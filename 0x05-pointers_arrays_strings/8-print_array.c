@@ -2,6 +2,7 @@
 #include <stdio.h>
 /**
  * print_array - print an amount of array's element
+ * @a: the character
  * @n: amount of elements to be printed
  *
  * Return: void
