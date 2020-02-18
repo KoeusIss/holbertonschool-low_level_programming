@@ -16,7 +16,7 @@ int _atoi(char *str)
 		if (str[i] == '-')
 		{
 			sign *= (-1);
-		}else if (str[i] >= '0' && str[i] <= '9')
+		} else if (str[i] >= '0' && str[i] <= '9')
 		{
 			result = result * 10 + str[i] - '0';
 			if (!(str[i + 1] >= '0' && str[i + 1] <= '9'))
