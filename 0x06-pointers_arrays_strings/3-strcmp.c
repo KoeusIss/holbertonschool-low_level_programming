@@ -21,5 +21,5 @@ int _strcmp(char *s1, char *s2)
 		else
 			continue;
 	}
-	return cmp;
+	return (cmp);
 }
