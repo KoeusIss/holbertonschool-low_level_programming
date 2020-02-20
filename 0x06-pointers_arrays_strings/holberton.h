@@ -1,1 +1,2 @@
-int _putchar(char c);
+int _putchar(char);
+char *_strcat(char*, char*);
