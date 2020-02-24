@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * _strchr - Locates a character in a string
  * @str: Given string
@@ -11,11 +10,11 @@ char *_strchr(char *str, char c)
 {
 	while (*str != '\0')
 	{
+		str++;
 		if (*str == c)
 			break;
-		str++;
 	}
 	if (*str == '\0')
-		str = NULL;
+		str = 0;
 	return (str);
 }
