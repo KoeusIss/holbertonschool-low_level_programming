@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * print_diagsums - print the sum of the two diagonals
- * @arr: the square array
+ * @a: the square array
  * @size: the size of the array
  *
  * Return: void
