@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * _strpbrk - searches a string fir any of set of bytes
  * @str: Given string
@@ -19,9 +20,11 @@ char *_strpbrk(char *str, char *accept)
 			if (*str == accept[i])
 				occur += 1;
 		}
-		if (occur != 0)
+		if (occur > 0)
 			break;
 		str++;
 	}
+	if (*str == '\0')
+		return (NULL);
 	return (str);
 }
