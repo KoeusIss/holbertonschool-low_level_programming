@@ -27,7 +27,7 @@ int _is_palindrome(char *str, int len)
 	if (*str != *(str + (len - 1)))
 		return (0);
 
-	return _is_palindrome(str + 1, len - 2);
+	return (_is_palindrome(str + 1, len - 2));
 }
 
 /**
@@ -38,5 +38,5 @@ int _is_palindrome(char *str, int len)
  */
 int is_palindrome(char *str)
 {
-	return _is_palindrome(str, _length(str));
+	return (_is_palindrome(str, _length(str)));
 }
