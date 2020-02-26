@@ -16,8 +16,7 @@ int _is_prime(int nb, int count)
 		return (0);
 	if (count * count > nb)
 		return (1);
-	
-	return _is_prime(nb, count + 1);
+	return (_is_prime(nb, count + 1));
 }
 
 /**
@@ -26,7 +25,7 @@ int _is_prime(int nb, int count)
  *
  * Return: 1 if is prime, 0 otherwise
  */
-int is_prime_number(int n)
+int is_prime_number(int nb)
 {
-	return _is_prime(n, 2);
+	return (_is_prime(nb, 2));
 }
