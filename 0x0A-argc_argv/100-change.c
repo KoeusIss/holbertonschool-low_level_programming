@@ -1,6 +1,6 @@
-#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * make_change - converts an amount to change
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 {
 	int coin;
 
-	if ((argc - 1) != 1)
+	if (argc <= 1)
 	{
 		printf("Error\n");
 		return (1);
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	{
 		coin = atoi(argv[1]);
 		if (coin < 0)
-			return (0);
+			printf("0\n");
 		printf("%d\n", make_change(coin));
 	}
 	return (0);
