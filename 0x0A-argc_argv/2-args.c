@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * main - print all atguments
- * @args: Argument count
+ * @argc: Argument count
  * @argv: argument vector
  *
  * Return: Always 0
