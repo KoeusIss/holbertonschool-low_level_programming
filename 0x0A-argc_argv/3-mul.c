@@ -33,7 +33,7 @@ int _atoi(char *c)
 			sign *= (-1);
 		else
 		{
-			val= (val * 10) + (*c - '0');
+			val = (val * 10) + (*c - '0');
 		}
 		c++;
 	}
