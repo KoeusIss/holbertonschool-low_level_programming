@@ -1,37 +1,6 @@
 #include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
-
-/**
- * print_error - print error
- *
- * Return: Always 1
- */
-int print_error(void)
-{
-	char *e;
-
-	e = "Error";
-	while (*e)
-	{
-		_putchar(*e);
-		e++;
-	}
-	_putchar('\n');
-	return (1);
-}
-
-/**
- * print_int - print integer
- * @num: the ginven integer
- *
- * Return: void
- */
-void print_int(int num)
-{
-	if (num / 10)
-		print_int(num / 10);
-	_putchar(num % 10 + '0');
-}
 
 /**
  * make_change - converts an amount to change
@@ -57,7 +26,7 @@ int make_change(int num)
  * @argc: Arguments count
  * @argv: Arguments vector
  *
- * Retrun: Always 0
+ * Return: Always 0
  */
 int main(int argc, char **argv)
 {
@@ -65,14 +34,14 @@ int main(int argc, char **argv)
 
 	if ((argc - 1) != 1)
 	{
-		return (print_error());
+		printf("Error\n");
+		return (1);
 	}
 	else
 	{
 		coin = atoi(argv[1]);
 		if (coin < 0)
 			return (0);
-		print_int(make_change(coin));
-		_putchar('\n');
+		printf("%d\n", make_change(coin));
 	}
 }
