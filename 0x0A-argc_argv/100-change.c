@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 {
 	int coin;
 
-	if (argc <= 1)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
@@ -41,8 +41,11 @@ int main(int argc, char **argv)
 	{
 		coin = atoi(argv[1]);
 		if (coin < 0)
+		{
 			printf("%d\n", 0);
+			return (0);
+		}
 		printf("%d\n", make_change(coin));
+		return (0);
 	}
-	return (0);
 }
