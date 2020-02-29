@@ -10,12 +10,12 @@ int main(int argc, char **argv __attribute__((unused)))
 {
 	if (argc < 10)
 	{
-		_putchar(argc + '0');
+		_putchar((argc - 1) + '0');
 	}
 	else
 	{
-		_putchar((argc / 10) + '0');
-		_putchar((argc % 10) + '0');
+		_putchar(((argc - 1) / 10) + '0');
+		_putchar(((argc - 1) % 10) + '0');
 	}
 	_putchar('\n');
 	return (0);
