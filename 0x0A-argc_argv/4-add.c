@@ -1,17 +1,4 @@
 #include "holberton.h"
-#include <unistd.h>
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * print_int - print integer
@@ -21,11 +8,6 @@ int _putchar(char c)
  */
 void print_int(int num)
 {
-	if (num < 0)
-	{
-		_putchar('-');
-		num *= (-1);
-	}
 	if (num / 10)
 		print_int(num / 10);
 	_putchar(num % 10 + '0');
@@ -40,19 +22,13 @@ void print_int(int num)
 int _atoi(char *c)
 {
 	unsigned int val = 0;
-	int sign = 1;
 
 	while (*c)
 	{
-		if (*c == '-')
-			sign *= (-1);
-		else
-		{
-			val = (val * 10) + (*c - '0');
-		}
+		val = (val * 10) + (*c - '0');
 		c++;
 	}
-	return (sign * val);
+	return (val);
 }
 /**
  * error - print error message
