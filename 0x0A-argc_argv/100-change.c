@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	{
 		coin = atoi(argv[1]);
 		if (coin < 0)
-			printf("0\n");
+			printf("%d\n", 0);
 		printf("%d\n", make_change(coin));
 	}
 	return (0);
