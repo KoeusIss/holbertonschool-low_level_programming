@@ -14,9 +14,10 @@ int main(int argc, char **argv)
 	int sum = 0;
 	int i;
 
-	if (argc <= 1)
+	if (argc == 1)
 	{
-		printf("0\n");
+		printf("%d\n", 0);
+		return (0);
 	}
 	else
 	{
@@ -31,7 +32,6 @@ int main(int argc, char **argv)
 			}
 		}
 		printf("%d\n", sum);
+		return (0);
 	}
-
-	return (0);
 }
