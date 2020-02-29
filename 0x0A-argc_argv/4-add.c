@@ -1,54 +1,5 @@
-#include "holberton.h"
-
-/**
- * print_int - print integer
- * @num: the given integer
- *
- * Return: void
- */
-void print_int(int num)
-{
-	if (num / 10)
-		print_int(num / 10);
-	_putchar(num % 10 + '0');
-}
-
-/**
- * _atoi - converts character to integer
- * @c: the given character
- *
- * Return: An integer
- */
-int _atoi(char *c)
-{
-	unsigned int val = 0;
-
-	while (*c)
-	{
-		val = (val * 10) + (*c - '0');
-		c++;
-	}
-	return (val);
-}
-/**
- * error - print error message
- *
- * Return: Always 1
- */
-
-int error(void)
-{
-	char *e;
-
-	e = "Error";
-	while (*e)
-	{
-		_putchar(*e);
-		e++;
-	}
-	_putchar('\n');
-	return (1);
-}
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - multiplies two numbers
@@ -66,14 +17,14 @@ int main(int argc, char **argv)
 	{
 		if (*argv[i] >= '0' && *argv[i] <= '9')
 		{
-			sum += _atoi(argv[i]);
+			sum += atoi(argv[i]);
 		}
 		else
 		{
-			return (error());
+			printf("Error\n");
+			return (1);
 		}
 		i++;
 	}
-	print_int(sum);
-	_putchar('\n');
+	printf("%d\n", sum);
 }
