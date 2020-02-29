@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  * main - multiplies two numbers
@@ -21,7 +22,7 @@ int main(int argc, char **argv)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (atoi(argv[i]))
+			if (isdigit(*argv[i]))
 				sum += atoi(argv[i]);
 			else
 			{
@@ -29,7 +30,7 @@ int main(int argc, char **argv)
 				return (1);
 			}
 		}
-		printf("%i\n", sum);
+		printf("%d\n", sum);
 	}
 
 	return (0);
