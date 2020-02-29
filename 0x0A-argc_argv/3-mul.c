@@ -7,6 +7,11 @@
  */
 void print_int(int num)
 {
+	if (num < 0)
+	{
+		_putchar('-');
+		num *= (-1);
+	}
 	if (num / 10)
 		print_int(num / 10);
 	_putchar(num % 10 + '0');
@@ -19,14 +24,20 @@ void print_int(int num)
  */
 int _atoi(char *c)
 {
-	int val = 0;
+	unsigned int val = 0;
+	int sign = 1;
 
 	while (*c)
 	{
-		val = (val * 10) + (*c - '0');
+		if (*c == '-')
+			sign *= (-1);
+		else
+		{
+			val= (val * 10) + (*c - '0');
+		}
 		c++;
 	}
-	return (val);
+	return (sign * val);
 }
 /**
  * main - multiplies two numbers
