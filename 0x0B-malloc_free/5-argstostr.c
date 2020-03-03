@@ -10,6 +10,7 @@
 int _strlen(char *str)
 {
 	int length = 0;
+
 	while (*(str + length))
 		length++;
 	return (length);
@@ -47,17 +48,14 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 	/* Filling the result */
 	i = 0;
-	while (i <= size)
+	for (j = 0; j < ac; j++)
 	{
-		for (j = 0; j < ac; j++)
+		for (k = 0; av[j][k]; k++)
 		{
-			for (k = 0; av[j][k]; k++)
-			{
-				result[i] = av[j][k];
-				i++;
-			}
-			result[i++] = '\n';
+			result[i] = av[j][k];
+			i++;
 		}
+		result[i++] = '\n';
 	}
 	result[i] = '\0';
 	return (result);
