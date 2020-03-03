@@ -29,7 +29,7 @@ char *argstostr(int ac, char **av)
 	int j;
 	int k;
 	int size;
-	char *result;
+	char *result NULL;
 
 	/* Checks the null arguments */
 	if (ac == 0 || av == NULL)
