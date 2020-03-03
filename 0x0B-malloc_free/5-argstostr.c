@@ -3,8 +3,8 @@
 
 /**
  * _strlen - calculate the string length
- * @str: the given string
- *
+ * @ac: argument count
+ * @av: arguments vector
  * Return: an integer of the length
  */
 int _strlen(int ac, char **av)
