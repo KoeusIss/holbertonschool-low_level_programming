@@ -25,6 +25,8 @@ int **alloc_grid(int width, int height)
 	while (i < height)
 	{
 		grid[i] = (int *) malloc(width * sizeof(int));
+		if (grid[i] == NULL)
+			return (NULL);
 		i++;
 	}
 	/* fill the grid */
