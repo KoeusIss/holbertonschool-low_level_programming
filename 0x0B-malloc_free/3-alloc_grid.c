@@ -18,26 +18,27 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 	/* Allocates a memory for grid */
-	grid = (int **) malloc(width * sizeof(int));
+	grid = (int **) malloc(height * sizeof(int *));
 	if (grid == NULL)
 		return (NULL);
 	i = 0;
 	while (i < height)
 	{
-		grid[i] = (int *) malloc(height * sizeof(int));
+		grid[i] = (int *) malloc(width * sizeof(int));
 		i++;
 	}
 	/* fill the grid */
 	i = 0;
 	j = 0;
-	while (i < height)
+	while (i <= height)
 	{
-		while (j < width)
+		while (j <= width)
 		{
 			grid[i][j] = 0;
 			j++;
 		}
 		i++;
 	}
+	/* Final return */
 	return (grid);
 }
