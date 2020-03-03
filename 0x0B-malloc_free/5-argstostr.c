@@ -33,7 +33,7 @@ char *argstostr(int ac, char **av)
 	if (ac == 0 || av == NULL)
 		return (NULL);
 	/* Calculate the final string size */
-	i = 1;
+	i = 0;
 	size = 0;
 	while (i < ac)
 	{
