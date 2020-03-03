@@ -9,25 +9,27 @@
  */
 char *_strdup(char *str)
 {
-        char *dupl;
-        int size = 0;
-        int i;
+	char *dupl;
+	int size = 0;
+	int i;
 
-        if (str == NULL)
-                return (NULL);
-
-        while (*(str + size))
-                size++;
-
-        dupl = malloc(size);
-        if (dupl == NULL)
-                return (NULL);
-
-        i = 0;
-        while (i < size)
-        {
-                *(dupl + i) = *(str + i);
-                i++;
-        }
-        return (dupl);
+	/* Checks the null string */
+	if (str == NULL)
+		return (NULL);
+	/* Determine the size of the string */
+	while (*(str + size))
+		size++;
+	/* Allocate a memory for the duplicate string */
+	dupl = malloc(size);
+	if (dupl == NULL)
+		return (NULL);
+	/* Fill the duplicated string */
+	i = 0;
+	while (i < size)
+	{
+		*(dupl + i) = *(str + i);
+		i++;
+	}
+	/* Final return */
+	return (dupl);
 }
