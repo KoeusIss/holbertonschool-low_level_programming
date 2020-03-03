@@ -25,7 +25,7 @@ char *_strdup(char *str)
 		return (NULL);
 	/* Fill the duplicated string */
 	i = 0;
-	while (i < size)
+	while (i <= size)
 	{
 		*(dupl + i) = *(str + i);
 		i++;
