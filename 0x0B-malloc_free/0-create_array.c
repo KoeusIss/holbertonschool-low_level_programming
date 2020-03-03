@@ -21,6 +21,7 @@ char *create_array(unsigned int size, char c)
 	if (arr == NULL)
 		return (NULL);
 	/* Fill the array */
+        i = 0;
 	while (i < size)
 	{
 		*(arr + i) = c;
