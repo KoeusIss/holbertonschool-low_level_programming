@@ -12,7 +12,7 @@ int **alloc_grid(int width, int height)
 {
 	int i;
 	int j;
-	int **grid;
+	int **grid = NULL;
 
 	/* Checks the null sizes */
 	if (width <= 0 || height <= 0)
@@ -28,21 +28,9 @@ int **alloc_grid(int width, int height)
 		if (grid[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
-				free(grid[i]);
+				free(grid[j]);
 				free(grid);
 			return (NULL);
-		}
-		i++;
-	}
-	/* fill the grid */
-	i = 0;
-	j = 0;
-	while (i <= height)
-	{
-		while (j <= width)
-		{
-			grid[i][j] = 0;
-			j++;
 		}
 		i++;
 	}
