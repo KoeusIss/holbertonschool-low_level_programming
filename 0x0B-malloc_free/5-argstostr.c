@@ -7,12 +7,20 @@
  *
  * Return: an integer of the length
  */
-int _strlen(char *str)
+int _strlen(int ac, char **av)
 {
 	int length = 0;
+	int i;
+	int j;
 
-	while (*(str + length))
-		length++;
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j]; j++)
+		{
+			length++;
+		}
+		length += 1;
+	}
 	return (length);
 }
 
@@ -29,19 +37,13 @@ char *argstostr(int ac, char **av)
 	int j;
 	int k;
 	int size;
-	char *result = NULL;
+	char *result;
 
 	/* Checks the null arguments */
 	if (ac == 0 || av == NULL)
 		return (NULL);
 	/* Calculate the final string size */
-	i = 0;
-	size = 0;
-	while (i < ac)
-	{
-		size += _strlen(av[i]);
-		i++;
-	}
+	size = _strlen(ac, av);
 	/* Allocates memory to the result */
 	result = malloc((size + 1) * sizeof(char));
 	if (result == NULL)
