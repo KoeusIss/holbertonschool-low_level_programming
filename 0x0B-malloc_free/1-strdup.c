@@ -20,7 +20,7 @@ char *_strdup(char *str)
 	while (*(str + size))
 		size++;
 	/* Allocate a memory for the duplicate string */
-	dupl = malloc(size);
+	dupl = malloc(size + 1);
 	if (dupl == NULL)
 		return (NULL);
 	/* Fill the duplicated string */
