@@ -16,6 +16,12 @@
 * How to use the `exit` function.
 * What are the functions `calloc` ans `realloc` from standard library and how to use them.
 
+## Tasks:
+0. Trust no one.
+1. String-nconcat.
+2. _calloc.
+3. Array_range.
+
 ## Author:
 KoeusIss - Holberton school student.
 
