@@ -12,9 +12,6 @@ int _strlen(char *str)
 	/* Declare the return length */
 	int len = 0;
 
-	/* Checks the null argument */
-	if (str == NULL)
-		return (len);
 	/* Determine the length of string */
 	while (*(str + len))
 		len++;
@@ -34,10 +31,18 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	/* Declaration */
 	char *result;
-	unsigned int l1 = _strlen(s1);
-	unsigned int l2 = _strlen(s2);
+	unsigned int l1;
+	unsigned int l2;
 	unsigned int i;
 
+	/* Checks for null string argument */
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	/* Determine the length */
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
 	/* Checks fi n exceed the string length */
 	if (n >= l2)
 		n = l2;
