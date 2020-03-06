@@ -11,7 +11,7 @@ int _strlen(char *s)
 {
 	int len;
 
-	while(*s != '\0')
+	while (*s != '\0')
 		len++;
 	return (len);
 }
@@ -24,8 +24,9 @@ int _strlen(char *s)
 void _error(void)
 {
 	char *e;
+
 	e = "Error";
-	while(*e)
+	while (*e)
 		_putchar(*e++);
 	_putchar('\n');
 }
@@ -80,7 +81,7 @@ void print_arr(char *arr)
  *
  * Return: Always 0
  */
-int main(int ac __attribute__((unused)), char **av)
+int main(int ac, char **av)
 {
 	char *result;
 	int l1;
