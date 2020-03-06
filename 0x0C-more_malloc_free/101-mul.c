@@ -11,8 +11,7 @@ int _strlen(char *s)
 {
 	int len;
 
-	while (*s != '\0')
-		len++;
+	for (len = 0; s[len]; len++);
 	return (len);
 }
 
@@ -55,7 +54,10 @@ int _chartoi(char c)
 	if (_is_digit(c))
 		return (c - '0');
 	else
-		return (0);
+	{
+		_error();
+		exit(98);
+	}
 }
 
 /**
@@ -66,12 +68,11 @@ int _chartoi(char c)
  */
 void print_arr(char *arr)
 {
-	int i;
-	int len;
-
-	len = _strlen(arr);
-	for (i = 0; i < len; i++)
-		_putchar(arr[i] + '0');
+	while (*arr)
+	{
+		_putchar(*arr);
+		arr++;
+	}
 }
 
 /**
@@ -112,18 +113,13 @@ int main(int ac, char **av)
 	for (i = l1 - 1; i >= 0; i--)
 	{
 		carry = 0;
-		for (j = l2 - 1; j >= 0; j++)
+		for (j = l2 - 1; j >= 0; j--)
 		{
 			a = _chartoi(av[1][i]);
 			b = _chartoi(av[2][j]);
-			if (!a || !b)
-			{
-				_error();
-				exit(98);
-			}
 			tmp += carry + a * b + result[i + j + 1];
-			carry = result[i + j - 1] / 10;
-			result[i + j - 1] = (tmp % 10) + '0';
+			carry = tmp / 10;
+			result[i + j + 1] = (tmp % 10) + '0';
 		}
 		result[i + j + 1] += carry;
 	}
