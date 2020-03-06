@@ -21,7 +21,7 @@
 * Cisfun
 
 ## Projects:
-1. [0x00] - Hello world!
+1. [0x00](/tree/master/0x00-hello_world) - Hello world!
 2. [0x01] - Variables, if else and loops
 3. [0x02] - Functions and nested loops
 4. [0x03] - Debugging
