@@ -36,28 +36,19 @@ void _error(void)
  *
  * Return: 1 if is digit, 0 otherwise
  */
-int _is_digit(char c)
+int _is_digit(char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+	int i;
+	int res = 0;
 
-/**
- * _chartoi - converts charcter to integer
- * @c: given character
- *
- * Return: integer
- */
-int _chartoi(char c)
-{
-	if (_is_digit(c))
-		return (c - '0');
-	else
+	for (i = 0; str[i]; i++)
 	{
-		_error();
-		exit(98);
+		if (str[i] >= '0' && str[i] <= '9')
+			res = 1;
+		else
+			return (0);
 	}
+	return (res);
 }
 
 /**
@@ -73,6 +64,7 @@ void print_arr(char *arr)
 		_putchar(*arr);
 		arr++;
 	}
+	_putchar('\n');
 }
 
 /**
@@ -84,17 +76,22 @@ void print_arr(char *arr)
  */
 int main(int ac, char **av)
 {
+	/* Declaration */
 	char *result;
-	int l1;
-	int l2;
+	int l1, l2;
 	int carry;
-	int i;
-	int j;
+	int i, j, t;
 	int tmp;
-	int a, b;
+	int a, b, r;
 
 	/* Checks the length of arguments */
 	if (ac != 3)
+	{
+		_error();
+		exit(98);
+	}
+	/* Checks if the two number is digit */
+	if (!_is_digit(av[1]) || !_is_digit(av[2]))
 	{
 		_error();
 		exit(98);
@@ -109,15 +106,19 @@ int main(int ac, char **av)
 		_error();
 		exit(98);
 	}
+	/* Initialize the allocated result */
+	for (t = 0; t < l1 + l2; t++)
+		result[t] = '0';
 	/* Fill the result */
 	for (i = l1 - 1; i >= 0; i--)
 	{
 		carry = 0;
 		for (j = l2 - 1; j >= 0; j--)
 		{
-			a = _chartoi(av[1][i]);
-			b = _chartoi(av[2][j]);
-			tmp += carry + a * b + result[i + j + 1];
+			a = (av[1][i] - '0');
+			b = (av[2][j] - '0');
+			r = (result[i + j + 1] - '0');
+			tmp = carry + a * b + r;
 			carry = tmp / 10;
 			result[i + j + 1] = (tmp % 10) + '0';
 		}
