@@ -32,6 +32,6 @@
 
 KoeusIss - Holberton school student
 
-## Issuee: 
+## Issues: 
 
 Nothing until now
