@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
+#define CHECK(s) ((s == NULL) ? (s = "") : (s))
 
 /**
  * new_dog - creates a new dog
@@ -15,6 +16,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *my_name, *my_owner;
 	int l1 = 0, l2 = 0, i;
 
+	CHECK(name);
+	CHECK(owner);
 	while (name[l1])
 		l1++;
 	while (owner[l2])
