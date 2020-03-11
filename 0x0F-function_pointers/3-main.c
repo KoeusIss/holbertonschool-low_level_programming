@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "3-calc.h"
 
 /**
@@ -13,6 +14,11 @@ int main(int ac, char **av)
 {
 	int result;
 
+	if (strlen(av[2]) != 1)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	if (ac != 4)
 	{
 		printf("Error\n");
