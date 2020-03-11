@@ -19,11 +19,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 #define I(A) (atoi(av[A]))
-	if (!(result = get_op_func(av[2])(I(1), I(3))))
-	{
-		printf("Error\n");
-		exit(99);
-	}
+	result = get_op_func(av[2])(I(1), I(3));
 	printf("%d\n", result);
 #undef I
 	return (0);
