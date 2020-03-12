@@ -1,24 +1,16 @@
 ```
-
-
-  _                     _                _
- | |                   | |              | |
- | |     _____      __ | | _____   _____| |
- | |    / _ \ \ /\ / / | |/ _ \ \ / / _ \ |           _
- | |___| (_) \ V  V /  | |  __/\ V /  __/ |          (_)
- |______\___/_\_/\_/_ _|_|\___| \_/ \___|_| _ __ ___  _ _ __   __ _
- | '_ \| '__/ _ \ / _` | '__/ _` | '_ ` _ \| '_ ` _ \| | '_ \ / _` |
- | |_) | | | (_) | (_| | | | (_| | | | | | | | | | | | | | | | (_| |
- | .__/|_|  \___/ \__, |_|  \__,_|_| |_| |_|_| |_| |_|_|_| |_|\__, |
- | |               __/ |                                       __/ |
- |_|              |___/                                       |___/
- | |
- | | __ _ _ __   __ _ _   _  __ _  __ _  ___
- | |/ _` | '_ \ / _` | | | |/ _` |/ _` |/ _ \
- | | (_| | | | | (_| | |_| | (_| | (_| |  __/
- |_|\__,_|_| |_|\__, |\__,_|\__,_|\__, |\___|
-                 __/ |             __/ |
-                |___/             |___/
+ _                    _                _ 
+| |    _____      __ | | _____   _____| |
+| |   / _ \ \ /\ / / | |/ _ \ \ / / _ \ |
+| |__| (_) \ V  V /  | |  __/\ V /  __/ |
+|_____\___/ \_/\_/   |_|\___| \_/ \___|_|
+                                         
+ ____                                                _             
+|  _ \ _ __ ___   __ _ _ __ __ _ _ __ ___  _ __ ___ (_)_ __   __ _ 
+| |_) | '__/ _ \ / _` | '__/ _` | '_ ` _ \| '_ ` _ \| | '_ \ / _` |
+|  __/| | | (_) | (_| | | | (_| | | | | | | | | | | | | | | | (_| |
+|_|   |_|  \___/ \__, |_|  \__,_|_| |_| |_|_| |_| |_|_|_| |_|\__, |
+                 |___/                                       |___/ 
 
 
 ```
@@ -40,6 +32,9 @@
 11. [0x0A](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0A-argc_argv) - Argc and argv
 12. [0x0B](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0B-malloc_free) - Malloc and free
 13. [0x0C](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0C-more_malloc_free) - More malloc and free
+14. [0x0D](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0D-preprocessor) - Preprocessor
+15. [0x0E](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0E-structures_typedef) - Structures and typedef
+16. [0x0F](https://github.com/KoeusIss/holbertonschool-low_level_programming/tree/master/0x0F-function_pointers) - Function pointers
 
 ## Author:
 KoeusIss - Holberton school student
