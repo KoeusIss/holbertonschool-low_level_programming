@@ -5,7 +5,6 @@
  * print_int - print integer
  * @ap: list
  */
-
 void print_int(va_list ap)
 {
 	printf("%d", va_arg(ap, int));
@@ -38,6 +37,8 @@ void print_string(va_list ap)
 	char *s;
 
 	s = va_arg(ap, char *);
+	if (s == NULL)
+		printf("(nil)");
 	printf("%s", s);
 }
 
@@ -50,32 +51,39 @@ void print_string(va_list ap)
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	unsigned int i = 0, j;
-	format_t form[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string},
-		{NULL, NULL}
-	};
+	unsigned int i = 0;
+	int indicator;
 
 	va_start(ap, format);
+
+	/* cies */
 	while (format[i])
 	{
-		j = 0;
-		while ((form + j)->c)
+		indicator = 1;
+		switch (format[i])
 		{
-			if (format[i] == *(form + j)->c)
-			{
-				(form + j)->f(ap);
-				if (format[i + 1])
-					printf(", ");
+			case 'c':
+				print_char(ap);
 				break;
-			}
-			j++;
+			case 'i':
+				print_int(ap);
+				break;
+			case 'f':
+				print_float(ap);
+				break;
+			case 's':
+				print_string(ap);
+				break;
+			default:
+				indicator = 0;
+				break;
 		}
 		i++;
+		if (format[i] && indicator)
+			printf(", ");
 	}
-	printf("\n");
+
 	va_end(ap);
+
+	printf("\n");
 }
