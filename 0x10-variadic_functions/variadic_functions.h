@@ -9,13 +9,11 @@
  *
  * Description: Align every character with the needed format
  */
-
 typedef struct format
 {
 	char *c;
 	void (*f)(va_list);
 } format_t;
-
 
 int _putchar(char);
 int sum_them_all(const unsigned int, ...);

@@ -6,6 +6,7 @@
  * print_int - print integer
  * @ap: list
  */
+
 void print_int(va_list ap)
 {
 	printf("%d", va_arg(ap, int));
