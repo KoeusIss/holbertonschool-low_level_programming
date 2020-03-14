@@ -4,7 +4,7 @@
 
 /**
  * print_strings - prints strings
- * @seperator - seperator between strings
+ * @seperator: seperator between strings
  * @n: the sount of strings
  *
  * Return: void
