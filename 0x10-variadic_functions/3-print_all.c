@@ -25,8 +25,7 @@ void print_char(va_list ap)
  */
 void print_float(va_list ap)
 {
-	float f = va_arg(ap, double);
-	printf("%f", f);
+	printf("%f", va_arg(ap, double));
 }
 
 /**
@@ -57,7 +56,6 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 
-	/* cies */
 	while (format[i])
 	{
 		indicator = 1;
@@ -83,8 +81,6 @@ void print_all(const char * const format, ...)
 		if (format[i] && indicator)
 			printf(", ");
 	}
-
 	va_end(ap);
-
 	printf("\n");
 }
