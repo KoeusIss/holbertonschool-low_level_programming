@@ -10,8 +10,8 @@ int _strlen(const char *str)
 {
 	int len = 0;
 
-	while (str[++len])
-		;
+	while (str[len] != '\0')
+		len++;
 	return (len);
 }
 
@@ -32,9 +32,9 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (new_node == NULL)
 		return (NULL);
 
+	new_node->next = NULL;
 	new_node->str = strdup(str);
 	new_node->len = _strlen(str);
-	new_node->next = NULL;
 
 	if (*head == NULL)
 	{
