@@ -30,6 +30,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		cursor = cursor->next;
 		idx++;
 	}
+	if (idx <= index)
+		return (-1);
 
 	tmp = cursor->next;
 	cursor->next = tmp->next;
