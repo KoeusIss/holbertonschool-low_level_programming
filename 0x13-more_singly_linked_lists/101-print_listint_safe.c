@@ -1,11 +1,5 @@
 #include "lists.h"
 
-#define NORMAL_PRINT (while (head)			\
-	{						\
-	printf("[%p] %d\n", (void *) head, head->n);	\
-	head = head->next;				\
-	})						\
-
 /**
  * print_listint_safe - prints list
  * @head: a pointer to a given list
@@ -18,6 +12,8 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *fast, *slow, *tmp, *meet_point;
 	size_t counter = 0;
 
+	if (head == NULL)
+		exit(98);
 	slow = head;
 	fast = head->next;
 	while (slow && fast && fast->next)
@@ -33,7 +29,7 @@ size_t print_listint_safe(const listint_t *head)
 		tmp = fast;
 		while (slow != fast)
 		{
-			printf("[%p] %d\n", (void *) &slow, slow->n);
+			printf("[%p] %d\n", (void *) slow, slow->n);
 			counter++;
 			slow = slow->next;
 			fast = tmp;
@@ -44,18 +40,20 @@ size_t print_listint_safe(const listint_t *head)
 			meet_point = slow;
 		while (slow->next != fast)
 		{
-			printf("[%p] %d\n", (void *) &slow, slow->n);
+			printf("[%p] %d\n", (void *) slow, slow->n);
 			counter++;
 			slow = slow->next;
 		}
 		printf("[%p] %d\n", (void *) slow, slow->n);
-		printf("-> [%p] %d\n", (void *) &meet_point, meet_point->n);
+		printf("-> [%p] %d\n", (void *) meet_point, meet_point->n);
 	}
 	else
+	{
 		while (head)
 		{
-			printf("[%p] %d\n", (void *) &head, head->n);
+			printf("[%p] %d\n", (void *) head, head->n);
 			head = head->next;
 		}
+	}
 	return (counter);
 }
