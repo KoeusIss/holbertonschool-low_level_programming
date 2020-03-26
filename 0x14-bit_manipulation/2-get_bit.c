@@ -9,18 +9,16 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int arr[64];
-	unsigned int i = 0;
+	unsigned long int m;
 
-	while (i < 64 && n > 0)
-	{
-		arr[i] = (n & 1);
-		n = n >> 1;
-		i++;
-	}
-	if (index > i)
+	if (index > sizeof(unsigned long int) * 8)
 	{
 		return (-1);
 	}
-	return (arr[index]);
+	m = n | (1 << index);
+	if (m == n)
+	{
+		return (1);
+	}
+	return (0);
 }
