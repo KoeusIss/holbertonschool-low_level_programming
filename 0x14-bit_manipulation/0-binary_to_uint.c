@@ -1,17 +1,17 @@
 #include "holberton.h"
 
 /**
- * power - Determines the power of integer
+ * _power - Determines the power of integer
  * @base: the given integer base
  * @exp: the exponent
  *
  * Return: the integer power
  */
-int power(int base, int exp)
+int _power(int base, int exp)
 {
 	if (exp == 0)
 		return (1);
-	return (base * power(base, exp - 1));
+	return (base * _power(base, exp - 1));
 }
 
 /**
