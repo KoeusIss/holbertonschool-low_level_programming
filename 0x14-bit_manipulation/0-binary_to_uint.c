@@ -40,7 +40,7 @@ unsigned int binary_to_uint(const char *b)
 		}
 		if (b[length - 1] == '1')
 		{
-			uint += (b[length - 1] - '0') * power(2, i);
+			uint += (b[length - 1] - '0') * _power(2, i);
 		}
 		i++;
 		length--;
