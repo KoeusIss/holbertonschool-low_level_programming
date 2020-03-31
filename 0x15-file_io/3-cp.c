@@ -18,8 +18,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file_from = av[1];
-	file_to = av[2];
+	file_from = av[1], file_to = av[2];
 	ffd = open(file_from, O_RDONLY);
 	if (ffd < 0)
 	{
