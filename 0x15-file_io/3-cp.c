@@ -25,9 +25,16 @@ int cp(char *file_to, char *file_from)
 	if (file_from_w < 0)
 		return (98);
 
-	file_to_w = write(file_to_d, buffer, file_from_w);
-	if (file_to_w < 0)
-		return (99);
+	while (file_from_w > 0)
+	{
+		file_to_w = write(file_to_d, buffer, file_from_w);
+		if (file_to_w < 0)
+			return (99);
+		file_from_w = read(file_from_d, buffer, 1024);
+		if (file_from_w < 0)
+			return (98);
+		
+	}
 
 	file_from_c = close(file_from_d);
 	if (file_from_c < 0)
