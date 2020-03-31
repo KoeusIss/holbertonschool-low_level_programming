@@ -1,6 +1,49 @@
 #include "holberton.h"
 
 /**
+ * cp - copies src to desinations
+ * @file_to: the destination file
+ * @file_from: the source file
+ *
+ * Return: integer
+ */
+int cp(char *file_to, char *file_from)
+{
+	char *buffer[1024];
+	ssize_t file_to_d, file_from_d, file_from_w, file_to_w;
+	int file_from_c, file_to_c;
+
+	file_from_d = open(file_from, O_RDONLY);
+	if (file_from_d < 0)
+		return (98);
+
+	file_to_d = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
+	if (file_to_d < 0)
+		return (99);
+
+	file_from_w = read(file_from_d, buffer, 1024);
+	if (file_from_w < 0)
+		return (98);
+
+	file_to_w = write(file_to_d, buffer, file_from_w);
+	if (file_to_w < 0)
+		return (99);
+
+	file_from_c = close(file_from_d);
+	if (file_from_c < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from_c);
+		return (100);
+	}
+	file_to_c = close(file_to_d);
+	if (file_to_c < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to_c);
+		return (100);
+	}
+	return (0);
+}
+/**
  * main - the main function
  * @ac: the argument count
  * @av: the argument vector
@@ -9,46 +52,26 @@
  */
 int main(int ac, char **av)
 {
-	char *file_to, *file_from, buffer[1024];
-	ssize_t ftd, ffd, ffr, ftw;
-	int ffc, ftc;
+	int code;
 
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	file_from = av[1], file_to = av[2];
-	ffd = open(file_from, O_RDONLY);
-	if (ffd < 0)
+
+	code = cp(av[2], av[1]);
+	switch (code)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
+		case (98):
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+			exit(98);
+		case (99):
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		case (100):
+			exit(100);
+		default:
+			return (0);
 	}
-	ftd = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
-	ffr = read(ffd, buffer, 1024);
-	if (ffr < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	ftw = write(ftd, buffer, 1024);
-	if (ftw < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
-	ffc = close(ffd);
-	if (ffc < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ffc);
-		exit(100);
-	}
-	ftc = close(ftd);
-	if (ftc < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ftc);
-		exit(100);
-	}
-	exit(EXIT_SUCCESS);
 }
