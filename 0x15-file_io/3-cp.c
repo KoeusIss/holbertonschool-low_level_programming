@@ -20,13 +20,13 @@ int main(int ac, char **av)
 	}
 	file_from = av[1];
 	file_to = av[2];
-	ftd = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
-	ffd = open(file_from, O_RDWR);
+	ffd = open(file_from, O_RDONLY);
 	if (ffd < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
+	ftd = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
 	ffr = read(ffd, buffer, 1024);
 	if (ffr < 0)
 	{
