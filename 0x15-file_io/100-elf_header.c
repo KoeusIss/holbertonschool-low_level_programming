@@ -222,13 +222,22 @@ int main(int ac, char **av)
 
 	elf_file = av[1];
 	if (ac != 2)
+	{
+		dprintf(STDERR_FILENO,
+		"Usage: readelf file\n");
 		exit(98);
+	}
 	n = fill_struct(elf_file, &h);
 	if (n < 0)
+	{
+		dprintf(STDERR_FILENO,
+		"Error: Cannot read from file\n");
 		exit(98);
+	}
 	if (!is_elf(h))
 	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file - it has the wrong magic bytes at the start");
+		dprintf(STDERR_FILENO,
+		"Error: Not an ELF file - it has the wrong magic bytes at the start\n");
 		exit(98);
 	}
 	printf("ELF Header:\n");
