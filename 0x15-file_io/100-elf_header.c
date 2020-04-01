@@ -185,9 +185,9 @@ void print_entry_point(elf_hdr *h)
 {
 	printf("  Entry point address:\t\t     ");
 
-	printf("0x%02x", h->entry_pt[2]);
-	printf("%02x", h->entry_pt[1]);
-	printf("%02x", h->entry_pt[0]);
+	printf("0x%x", h->entry_pt[2]);
+	printf("%x", h->entry_pt[1]);
+	printf("%x", h->entry_pt[0]);
 
 	printf("\n");
 }
@@ -227,7 +227,10 @@ int main(int ac, char **av)
 	if (n < 0)
 		exit(98);
 	if (!is_elf(h))
+	{
+		printf("Error: Not an ELF file - it has the wrong magic bytes at the start");
 		exit(98);
+	}
 	printf("ELF Header:\n");
 	print_magic(h);
 	print_class(h);
