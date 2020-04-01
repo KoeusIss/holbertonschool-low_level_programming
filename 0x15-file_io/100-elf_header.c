@@ -1,5 +1,64 @@
-#include "holberton.h"
 #define BUFSIZE 32
+
+/* Header file */
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+
+/**
+ * struct elf_hdr - Short description
+ * @ei_magic: First member
+ * @ei_class: Second member
+ * @ei_data: Third member
+ * @ei_version: Fourth member
+ * @os_abi: Fifth memeber
+ * @abi_version: Sixth member
+ * @type: elffile type
+ * @entry_pt: Entry point
+ *
+ * Description: Longer description
+ */
+typedef struct elf_hdr
+{
+	int ei_magic[16];
+	int ei_class;
+	int ei_data;
+	int ei_version;
+	int os_abi;
+	int abi_version;
+	int type;
+	int entry_pt[4];
+} elf_hdr;
+/**
+ * struct os_abi - Short description
+ * @hex: First member
+ * @osabi_name: Second member
+ *
+ * Description: Longer description
+ */
+typedef struct os_abi
+{
+	int hex;
+	char *osabi_name;
+} os_abi;
+/**
+ * struct elftype - Short description
+ * @hex: First member
+ * @type: Second member
+ * @object: Third memeber
+ *
+ * Description: Longer description
+ */
+typedef struct elftype
+{
+	int hex;
+	char *type;
+	char *object;
+} elftype;
 
 /**
  * fill_struct - fill the elf struct with fields
@@ -74,7 +133,7 @@ void print_data(elf_hdr *h)
 {
 	printf("  Data:                              ");
 	if (h->ei_magic[5] == 1)
-		printf("2's complement, little endian");
+		printf("2's complement, little endian\n");
 	else
 		printf("2's complement, big endian\n");
 }
