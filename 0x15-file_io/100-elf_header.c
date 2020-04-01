@@ -228,7 +228,7 @@ int main(int ac, char **av)
 		exit(98);
 	if (!is_elf(h))
 	{
-		printf("Error: Not an ELF file - it has the wrong magic bytes at the start");
+		dprintf(STDERR_FILENO, "Error: Not an ELF file - it has the wrong magic bytes at the start");
 		exit(98);
 	}
 	printf("ELF Header:\n");
