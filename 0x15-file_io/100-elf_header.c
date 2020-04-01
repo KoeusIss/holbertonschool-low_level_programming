@@ -45,9 +45,7 @@ void print_magic(elf_hdr *h)
 
 	printf("  Magic:   ");
 	for (i = 0; i < 16; i++)
-	{
 		printf("%02x ", h->ei_magic[i]);
-	}
 	printf("\n");
 }
 
@@ -59,10 +57,11 @@ void print_magic(elf_hdr *h)
  */
 void print_class(elf_hdr *h)
 {
+	printf("  Class:                             ");
 	if (h->ei_class == 1)
-		printf("  Class:\t\t\t     ELF32\n");
+		printf("ELF32\n");
 	else
-		printf("  Class:\t\t\t     ELF64\n");
+		printf("ELF64\n");
 }
 
 /**
@@ -73,10 +72,11 @@ void print_class(elf_hdr *h)
  */
 void print_data(elf_hdr *h)
 {
+	printf("  Data:                              ");
 	if (h->ei_magic[5] == 1)
-		printf("  Data:\t\t\t\t     2's complement, little endian\n");
+		printf("2's complement, little endian");
 	else
-		printf("  Data:\t\t\t\t     2's complement, big endian\n");
+		printf("2's complement, big endian\n");
 }
 
 /**
@@ -87,10 +87,11 @@ void print_data(elf_hdr *h)
  */
 void print_version(elf_hdr *h)
 {
+	printf("  Version:                           ");
 	if (h->ei_version == 1)
-		printf("  Version:\t\t\t     1 (current)\n");
+		printf("%d (current)\n", h->ei_version);
 	else
-		exit(98);
+		printf("%s", "");
 }
 
 /**
@@ -123,7 +124,7 @@ void print_os_abi(elf_hdr *h)
 		{17, "Stratus Technologies OpenVOS"},
 		};
 
-	printf("  OS/ABI:\t\t\t     ");
+	printf("  OS/ABI:                            ");
 	for (i = 0; i < 19; i++)
 	{
 		if ((osabi + i)->hex == h->os_abi)
@@ -164,7 +165,7 @@ void print_type(elf_hdr *h)
 		{3, "DYN", "Shared object file"},
 		{4, "CORE", "Core file"}
 	};
-	printf("  Type:\t\t\t\t     ");
+	printf("  Type:                              ");
 	for (i = 0; i < 5; i++)
 	{
 		if ((elftype + i)->hex == h->type)
@@ -183,8 +184,7 @@ void print_type(elf_hdr *h)
  */
 void print_entry_point(elf_hdr *h)
 {
-	printf("  Entry point address:\t\t     ");
-	printf("0x");
+	printf("  Entry point address:               0x");
 	if (h->entry_pt[3] != 0) printf("%x", h->entry_pt[3]);
 	if (h->entry_pt[2] != 0) printf("%x", h->entry_pt[2]);
 	if (h->entry_pt[1] != 0) printf("%x", h->entry_pt[1]);
