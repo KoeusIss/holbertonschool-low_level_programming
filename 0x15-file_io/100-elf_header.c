@@ -1,5 +1,5 @@
 #include "holberton.h"
-#define BUFSIZE 22
+#define BUFSIZE 32
 
 /**
  * fill_struct - fill the elf struct with fields
@@ -27,9 +27,9 @@ int fill_struct(const char *filename, elf_hdr **h)
 	(*h)->ei_version = buf[6];
 	(*h)->os_abi = buf[7];
 	(*h)->abi_version = buf[8];
-	(*h)->type = buf[10];
+	(*h)->type = buf[16];
 	for (i = 0; i < 4; i++)
-		(*h)->entry_pt[i] = buf[18 + i];
+		(*h)->entry_pt[i] = buf[24 + i];
 	return (0);
 }
 
@@ -43,7 +43,7 @@ void print_magic(elf_hdr *h)
 {
 	int i;
 
-	printf("\tMagic:\t");
+	printf("  Magic:   ");
 	for (i = 0; i < 16; i++)
 	{
 		printf("%02x ", h->ei_magic[i]);
@@ -60,9 +60,9 @@ void print_magic(elf_hdr *h)
 void print_class(elf_hdr *h)
 {
 	if (h->ei_class == 1)
-		printf("\tClass:\t\t\t\t\tELF32\n");
+		printf("  Class:\t\t\t     ELF32\n");
 	else
-		printf("\tClass:\t\t\t\t\tELF64\n");
+		printf("  Class:\t\t\t     ELF64\n");
 }
 
 /**
@@ -74,9 +74,9 @@ void print_class(elf_hdr *h)
 void print_data(elf_hdr *h)
 {
 	if (h->ei_magic[5] == 1)
-		printf("\tData:\t\t\t\t\t2's complement, little endian\n");
+		printf("  Data:\t\t\t\t     2's complement, little endian\n");
 	else
-		printf("\tData:\t\t\t\t\t2's complement, big endian\n");
+		printf("  Data:\t\t\t\t     2's complement, big endian\n");
 }
 
 /**
@@ -88,7 +88,7 @@ void print_data(elf_hdr *h)
 void print_version(elf_hdr *h)
 {
 	if (h->ei_version == 1)
-		printf("\tVersion:\t\t\t\t1 (current)\n");
+		printf("  Version:\t\t\t     1 (current)\n");
 	else
 		exit(98);
 }
@@ -123,12 +123,12 @@ void print_os_abi(elf_hdr *h)
 		{17, "Stratus Technologies OpenVOS"},
 		};
 
-	printf("\tOS/ABI:\t\t\t\t\t");
+	printf("  OS/ABI:\t\t\t     ");
 	for (i = 0; i < 19; i++)
 	{
 		if ((osabi + i)->hex == h->os_abi)
 		{
-			printf("Unix - %s\n", (osabi + i)->osabi_name);
+			printf("UNIX - %s\n", (osabi + i)->osabi_name);
 			return;
 		}
 	}
@@ -143,7 +143,7 @@ void print_os_abi(elf_hdr *h)
  */
 void print_abi_version(elf_hdr *h)
 {
-	printf("\tABI Version:\t\t\t\t");
+	printf("  ABI Version:\t\t\t     ");
 	printf("%d\n", h->abi_version);
 }
 
@@ -164,7 +164,7 @@ void print_type(elf_hdr *h)
 		{3, "DYN", "Shared object file"},
 		{4, "CORE", "Core file"}
 	};
-	printf("\tType:\t\t\t\t\t");
+	printf("  Type:\t\t\t\t     ");
 	for (i = 0; i < 5; i++)
 	{
 		if ((elftype + i)->hex == h->type)
@@ -183,13 +183,12 @@ void print_type(elf_hdr *h)
  */
 void print_entry_point(elf_hdr *h)
 {
-	int i;
+	printf("  Entry point address:\t\t     ");
 
-	printf("\tEntry point address:\t\t\t");
-	for (i = 0; i < 4; i++)
-	{
-		printf("%02x", h->entry_pt[i]);
-	}
+	printf("0x%02x", h->entry_pt[2]);
+	printf("%02x", h->entry_pt[1]);
+	printf("%02x", h->entry_pt[0]);
+
 	printf("\n");
 }
 
