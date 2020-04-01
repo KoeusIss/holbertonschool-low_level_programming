@@ -184,10 +184,11 @@ void print_type(elf_hdr *h)
 void print_entry_point(elf_hdr *h)
 {
 	printf("  Entry point address:\t\t     ");
-
-	printf("0x%x", h->entry_pt[2]);
-	printf("%x", h->entry_pt[1]);
-	printf("%x", h->entry_pt[0]);
+	printf("0x");
+	if (h->entry_pt[3] != 0) printf("%x", h->entry_pt[3]);
+	if (h->entry_pt[2] != 0) printf("%x", h->entry_pt[2]);
+	if (h->entry_pt[1] != 0) printf("%x", h->entry_pt[1]);
+	if (h->entry_pt[0] != 0) printf("%x", h->entry_pt[0]);
 
 	printf("\n");
 }
