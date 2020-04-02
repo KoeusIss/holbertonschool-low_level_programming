@@ -14,7 +14,7 @@ int fill_struct(const char *filename, elf_hdr **h)
 	char buf[BUFSIZE];
 	int i;
 
-	file_d = open(filename, O_RDONLY);
+	file_d = open(filename, O_RDWR);
 	if (file_d < 0)
 		return (-1);
 	file_r = read(file_d, buf, BUFSIZE);
