@@ -8,14 +8,12 @@
  */
 size_t print_dlistint(const dlistint_t *head)
 {
-	const dlistint_t *cursor;
-	int count = 0;
+	size_t count = 0;
 
-	cursor = head;
-	while (cursor)
+	while (head)
 	{
-		printf("%d\n", cursor->n);
-		cursor = cursor->next;
+		printf("%d\n", head->n);
+		head = head->next;
 		count++;
 	}
 	return (count);
