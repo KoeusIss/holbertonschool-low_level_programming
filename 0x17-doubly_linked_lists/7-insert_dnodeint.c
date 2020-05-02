@@ -22,7 +22,7 @@ dlistint_t
 		return (new_node);
 	}
 	cursor = (*head)->next;
-	while (cursor->next)
+	while (cursor)
 	{
 		if (index == count)
 		{
@@ -43,7 +43,7 @@ dlistint_t
 	}
 	if (count == index)
 	{
-		new_node = add_dnodeint_end(&cursor, n);
+		new_node = add_dnodeint_end(head, n);
 		return (new_node);
 	}
 	return (NULL);
