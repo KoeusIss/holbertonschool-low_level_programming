@@ -14,27 +14,37 @@ dlistint_t
 {
 	dlistint_t *cursor;
 	dlistint_t *new_node;
-	unsigned int count = 0;
+	unsigned int count = 1;
 
-	cursor = *head;
-	while (count <= (index - 1) && cursor)
+	if (index == 0)
 	{
-		cursor = cursor->next;
+		new_node = add_dnodeint(head, n);
+		return (new_node);
+	}
+	cursor = (*head)->next;
+	while (cursor->next)
+	{
+		if (index == count)
+		{
+			new_node = malloc(sizeof(dlistint_t));
+			if (new_node == NULL)
+			{
+				return (NULL);
+			}
+			new_node->n = n;
+			new_node->prev = cursor->prev;
+			new_node->next = cursor;
+			cursor->prev->next = new_node;
+			cursor->prev = new_node;
+			return (new_node);
+		}
 		count++;
+		cursor = cursor->next;
 	}
-	if (count < (index - 1))
+	if (count == index)
 	{
-		return (NULL);
+		new_node = add_dnodeint_end(&cursor, n);
+		return (new_node);
 	}
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-	{
-		return (NULL);
-	}
-	new_node->n = n;
-	new_node->prev = cursor->prev;
-	cursor->prev->next = new_node;
-	cursor->prev = new_node;
-	new_node->next = cursor;
-	return (new_node);
+	return (NULL);
 }
