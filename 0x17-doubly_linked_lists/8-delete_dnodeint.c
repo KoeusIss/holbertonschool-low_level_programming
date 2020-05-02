@@ -35,8 +35,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		if ((count - 1) == index)
 		{
-			cursor->prev->next = cursor->next;
-			cursor->next->prev = cursor->prev;
+			if (cursor->next)
+			{
+				cursor->prev->next = cursor->next;
+				cursor->next->prev = cursor->prev;
+			}
+			else
+				cursor->prev->next = NULL;
 			free(cursor);
 			return (1);
 		}
