@@ -1,6 +1,9 @@
-#include <unistd.h>
-int puts(char *s)
+#define _GNU_SOURCE
+#include <dlfcn.h>
+typedef int (*origin_puts)(const char *str);
+int puts(const char *str)
 {
-	write(STDOUT_FILENO, "--> Please make me win!\n", 25);
-	return (1);
+	origin_puts orig;
+	orig = (origin_puts)dlsym(RTLD_NEXT, "puts");
+	return orig("--> Please make me win!");
 }
