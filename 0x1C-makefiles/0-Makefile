@@ -1,0 +1,4 @@
+all: say_holberton
+
+say_holberton:
+	gcc main.c holberton.c -o holberton
