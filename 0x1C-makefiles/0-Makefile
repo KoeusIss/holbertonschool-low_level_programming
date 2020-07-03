@@ -1,4 +1,4 @@
-all: say_holberton
+all: build_executable
 
-say_holberton:
+build_executable:
 	gcc main.c holberton.c -o holberton
