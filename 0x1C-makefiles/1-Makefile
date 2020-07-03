@@ -1,0 +1,7 @@
+all: build_executable
+
+CC = gcc
+SRC = $(wildcard *.c)
+
+build_executable:
+	${CC} ${SRC} -o holberton
