@@ -8,6 +8,8 @@ def island_perimeter(grid):
     """
         Returns the perimeter of given island
     """
+    if not grid:
+        return
     w = len(grid[0])
     h = len(grid)
     per = 0
