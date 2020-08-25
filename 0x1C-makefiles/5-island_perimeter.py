@@ -10,26 +10,18 @@ def island_perimeter(grid):
     """
     w = len(grid[0])
     h = len(grid)
-    per = 0
+    perimeter = 0
 
     for i, col in enumerate(grid):
         for j, row in enumerate(col):
-            if row == 0:
-                if (grid[i][j-1] == 1 and grid[i][(j+1) % w] == 1 and
-                        grid[(i+1) % h][j] == 1 and grid[i-1][j] == 1):
-                    grid[i][j] = 1
-
-    for i, col in enumerate(grid):
-        for j, row in enumerate(col):
-
             if row == 1:
-                per += 4
+                perimeter += 4
                 if grid[i][j-1] == 1:
-                    per -= 1
+                    perimeter -= 1
                 if grid[i][(j+1) % w] == 1:
-                    per -= 1
+                    perimeter -= 1
                 if grid[(i+1) % h][j] == 1:
-                    per -= 1
+                    perimeter -= 1
                 if grid[i-1][j] == 1:
-                    per -= 1
-    return per
+                    perimeter -= 1
+    return perimeter
